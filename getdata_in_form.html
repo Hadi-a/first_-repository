@@ -1,0 +1,69 @@
+<head>
+</head>
+
+<body>
+<h3>Please fill out the below Inforamtion </h3> <br>
+<input type="name" id="name" placeholder="Enter your name "/><br><br>
+<input type="number" id="number" placeholder="Your Contact Number"/> <br><br>
+<input type="text" id="course" placeholder="Enter your course"/> <br><br>
+<button id=submit onclick="submit()">Submit</button><br>
+
+<div id="line">
+    <h3>You have submitted the following Information </h3>
+</div><br>
+<h3 id="info"></h3>
+
+
+<script>
+function submit()
+{
+    if(document.getElementById("name").value == "")
+    {
+        alert("Please Enter the Name")
+        document.getElementById("name").focus();
+    }
+
+    else if(document.getElementById("number").value == "")
+    {
+        alert("Please Enter the Number")
+        document.getElementById("number").focus();
+    }
+    else if(document.getElementById("course").value == "")
+    {
+        alert("Please Enter the Course")
+        document.getElementById("course").focus();
+    }
+
+    else
+    { 
+        
+        // var p=document.createElement("p")
+        // p.innerText="You have submitted the following Information "
+        // document.getElementById("line").appendChild(p)
+       
+        var data={
+            name:document.getElementById("name").value,
+            number:document.getElementById("number").value,
+            course:document.getElementById("course").value
+        };
+
+        for(var item in data)
+        {
+            var d= document.createElement("p")
+            d.innerText=item +" = "+ data[item]
+            document.getElementById("info").appendChild(d)
+            
+        }
+        var e= document.createElement("p")
+            e.innerText="------------------------"
+            document.getElementById("info").appendChild(e)
+
+        // var str=JSON.stringify(data);
+        // document.getElementById("info").innerHTML=str
+    }
+
+
+}
+</script>
+
+</body>
